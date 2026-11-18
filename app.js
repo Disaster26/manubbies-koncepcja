@@ -6,7 +6,7 @@
   var tk=false;function sc(){if(tk)return;tk=true;requestAnimationFrame(function(){top.classList.toggle('sc',window.pageYOffset>40);if(window.pageYOffset<innerHeight*.4)links.forEach(function(l){l.classList.remove('on')});tk=false})}
   addEventListener('scroll',sc,{passive:true});
 
-  var links=[].slice.call(document.querySelectorAll('.menu a[href^="#"]:not(.btn)'));sc();
+  var links=[].slice.call(document.querySelectorAll('.menu a[href^="#"]:not(.btn)'));addEventListener('load',function(){setTimeout(sc,200)});
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
     links.forEach(function(l){var t=document.querySelector(l.getAttribute('href'));if(t)io.observe(t)});
@@ -29,7 +29,7 @@
     if(nav){var bs=nav.querySelectorAll('button');
       bs.forEach(function(b){b.addEventListener('click',function(){tor.scrollBy({left:step()*(+b.dataset.k),behavior:'smooth'})})});
       function upd(){bs[0].disabled=tor.scrollLeft<4;bs[1].disabled=tor.scrollLeft+tor.clientWidth>=tor.scrollWidth-4;nav.hidden=tor.scrollWidth<=tor.clientWidth+2}
-      tor.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
+      tor.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);bs[0].disabled=true;addEventListener('load',function(){setTimeout(upd,300)});
     }
   });
 
@@ -45,7 +45,7 @@
     function go(i){tor.scrollTo({left:Math.max(0,Math.min(n-1,i))*tor.clientWidth,behavior:'smooth'})}
     function upd(){var c=idx();[].forEach.call(dots.children,function(b,j){b.setAttribute('aria-current',j===c)});l.disabled=c<=0;r.disabled=c>=n-1}
     l.addEventListener('click',function(){go(idx()-1)});r.addEventListener('click',function(){go(idx()+1)});
-    tor.addEventListener('scroll',function(){requestAnimationFrame(upd)},{passive:true});upd();
+    tor.addEventListener('scroll',function(){requestAnimationFrame(upd)},{passive:true});dots.children[0].setAttribute('aria-current','true');l.disabled=true;
     var down=false,sx=0,sl=0;
     tor.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;down=true;sx=e.clientX;sl=tor.scrollLeft;tor.style.scrollSnapType='none'});
     addEventListener('pointermove',function(e){if(down)tor.scrollLeft=sl-(e.clientX-sx)});
