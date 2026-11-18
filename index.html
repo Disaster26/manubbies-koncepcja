@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Manubbies - warsztaty szycia i projektowania dla dzieci, Warszawa Ursynów</title>
+<meta name="description" content="Warsztaty projektowania i szycia dla dzieci i młodzieży 7-17 lat na Ursynowie: krawiectwo, kaletnictwo, biżuteria i szewstwo. Grupy 4-6 osób, zajęcia próbne, półkolonie.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/bri-rdzen.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/nun-rdzen.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="img/hero-m-760.webp" imagesrcset="img/hero-m-480.webp 480w, img/hero-m-760.webp 760w, img/hero-m-1000.webp 1000w" imagesizes="100vw" media="(max-width: 899px)" fetchpriority="high">
+<link rel="preload" as="image" href="img/hero-2400.webp" imagesrcset="img/hero-1600.webp 1600w, img/hero-2400.webp 2400w, img/hero-3000.webp 3000w" imagesizes="(min-aspect-ratio: 12/5) 100vw, 240vh" media="(min-width: 900px)" fetchpriority="high">
+<style>
+@font-face{font-family:Bri;src:url(fonts/bri-rdzen.woff2) format("woff2");font-weight:600 800;font-display:swap;unicode-range:U+0020-007E,U+00A0,U+00B7,U+00D3,U+00D7,U+00F3,U+2013,U+2014,U+2019,U+201C-201E,U+2026}
+@font-face{font-family:Bri;src:url(fonts/bri-pl.woff2) format("woff2");font-weight:600 800;font-display:swap;unicode-range:U+0104-0107,U+0118-0119,U+0141-0144,U+015A-015B,U+0179-017C}
+@font-face{font-family:Nun;src:url(fonts/nun-rdzen.woff2) format("woff2");font-weight:400 700;font-display:swap;unicode-range:U+0020-007E,U+00A0,U+00B7,U+00D3,U+00D7,U+00F3,U+2013,U+2014,U+2019,U+201C-201E,U+2026}
+@font-face{font-family:Nun;src:url(fonts/nun-pl.woff2) format("woff2");font-weight:400 700;font-display:swap;unicode-range:U+0104-0107,U+0118-0119,U+0141-0144,U+015A-015B,U+0179-017C}
+:root{
+  --ink:#17171B;--ink2:#3F4048;--mut:#5C5E68;
+  --coral:#FF816E;--coral-d:#B13D29;
+  --gray:#F1F2F5;--line:#DFE1E7;--studio:#F0EEFA;
+  --w:min(92vw,1680px);--gut:max(4vw,16px);
+  --hh:72px;--r:14px;
+  --stitch:repeating-linear-gradient(90deg,var(--coral) 0 11px,transparent 11px 19px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--ink);font:400 17px/1.6 Nun,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:Bri,Nun,system-ui,sans-serif;font-weight:700;line-height:1.08;letter-spacing:-.015em;margin:0}
+h2{font-size:clamp(30px,3.4vw,54px);max-width:22ch}
+h3{font-size:clamp(21px,1.6vw,26px);line-height:1.2}
+p{margin:0 0 1em}
+.wrap{width:var(--w);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+section{scroll-margin-top:var(--hh)}
+
+/* sciegi - motyw marki */
+.szew{position:relative;padding-bottom:22px;margin-bottom:22px}
+.szew::after{content:"";position:absolute;left:0;bottom:0;width:86px;height:3px;background:var(--stitch);border-radius:2px}
+.lead{font-size:clamp(18px,1.25vw,21px);color:var(--ink2);max-width:60ch}
+
+/* przycisk-naszywka */
+.btn{--bg:var(--coral);--fg:var(--ink);position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:54px;padding:0 30px;background:var(--bg);color:var(--fg);font:700 17px/1 Bri,Nun,sans-serif;text-decoration:none;border:0;border-radius:12px;cursor:pointer;transition:transform .15s ease,background .15s ease}
+.btn::after{content:"";position:absolute;inset:5px;border:1.6px dashed rgba(23,23,27,.55);border-radius:8px;pointer-events:none}
+.btn:hover{transform:translateY(-2px);background:#FF6E58}
+.btn:active{transform:translateY(0)}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.btn.ink{--bg:var(--ink);--fg:#fff}
+.btn.ink::after{border-color:rgba(255,255,255,.55)}
+.btn.ink:hover{background:#2A2A31}
+.btn.sm{min-height:46px;padding:0 20px;font-size:16px}
+
+/* naglowek */
+#top{position:sticky;top:0;z-index:50;background:#fff;height:var(--hh);border-bottom:1px solid transparent;transition:border-color .2s,box-shadow .2s}
+#top.sc{border-color:var(--line);box-shadow:0 6px 20px -16px rgba(23,23,27,.35)}
+.bar{display:flex;align-items:center;gap:24px;height:100%}
+.logo{display:block;flex:none}
+.logo img{width:150px;height:auto}
+.menu{display:flex;align-items:center;gap:clamp(14px,1.7vw,32px);margin-left:auto}
+.menu a{text-decoration:none;font-weight:600;font-size:16px;color:var(--ink2);padding:8px 0;position:relative;white-space:nowrap}
+.menu a:not(.btn):hover{color:var(--ink)}
+.menu a.btn{color:var(--ink);font-weight:700;padding:0 20px}
+.menu a.on{color:var(--ink)}
+.menu a.on::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:2px;background:var(--stitch)}
+.tel{font-weight:700;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px}
+.tel svg{width:18px;height:18px}
+#burger{display:none;margin-left:auto;width:48px;height:48px;border:0;background:none;padding:12px;cursor:pointer}
+#burger span{display:block;height:2px;background:var(--ink);margin:6px 0;border-radius:2px;transition:transform .2s,opacity .2s}
+#top.open #burger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+#top.open #burger span:nth-child(2){opacity:0}
+#top.open #burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* hero */
+.hero{position:relative;min-height:calc(100svh - var(--hh));display:flex;align-items:center;background:var(--studio);overflow:hidden}
+.hero-foto{position:absolute;inset:0;margin:0}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:16px;height:3px;background:var(--stitch);z-index:1}
+.hero-foto img{width:100%;height:100%;object-fit:cover;object-position:72% 42%}
+.hero-in{position:relative;width:var(--w);margin-inline:auto;padding:48px 0}
+.hero-tx{max-width:min(46vw,840px)}
+.hero h1{font-size:clamp(40px,3.9vw,74px);line-height:1.04;margin-bottom:24px}
+.hero h1 span{display:block;font-size:.56em;line-height:1.18;margin-top:.45em;color:var(--ink2);font-weight:600;letter-spacing:-.01em}
+.hero .lead{margin-bottom:32px;max-width:40ch}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px}
+.hero-adr{font-size:15.5px;color:var(--ink2);line-height:1.45}
+.hero-adr a{font-weight:700;text-decoration:none;color:var(--ink)}
+
+/* sekcje */
+.sek{padding:clamp(72px,8vw,128px) 0}
+.szara{background:var(--gray)}
+.glowa{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 48px;margin-bottom:clamp(32px,3.5vw,56px)}
+.glowa .lead{margin:0;max-width:52ch}
+.glowa h2{max-width:26ch}
+
+/* rzemiosla */
+.rz{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.4vw,26px)}
+.rz article{min-width:0}
+.kar{position:relative;border-radius:var(--r);overflow:hidden;background:var(--gray);aspect-ratio:4/5}
+.kar-tor{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.kar-tor::-webkit-scrollbar{display:none}
+.kar-tor img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:start;user-select:none;-webkit-user-drag:none}
+.kar::after{content:"";position:absolute;inset:9px;border:1.6px dashed rgba(255,255,255,.85);border-radius:9px;pointer-events:none}
+.kar-kropki{position:absolute;left:0;right:0;bottom:18px;display:flex;justify-content:center;gap:4px;z-index:2}
+.kar-kropki button{width:28px;height:28px;border:0;background:none;padding:0;cursor:pointer;display:grid;place-items:center}
+.kar-kropki button::before{content:"";width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(23,23,27,.25)}
+.kar-kropki button[aria-current=true]::before{background:var(--coral);width:20px;border-radius:5px}
+.kar-strz{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--ink);cursor:pointer;display:grid;place-items:center;opacity:0;transition:opacity .2s;z-index:2;font:700 20px/1 Nun,sans-serif}
+.kar-strz.l{left:14px}.kar-strz.r{right:14px}
+.kar:hover .kar-strz{opacity:1}
+.kar-strz:disabled{opacity:0!important;pointer-events:none}
+.rz h3{margin:18px 0 6px}
+.rz p{color:var(--mut);font-size:16px;margin:0}
+
+/* jak pracujemy */
+.jak{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(36px,5vw,96px);align-items:start}
+.droga{list-style:none;padding:0;margin:34px 0 38px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 0}
+.droga li{font:700 clamp(17px,1.3vw,21px)/1 Bri,Nun,sans-serif;display:flex;align-items:center}
+.droga li+li::before{content:"";width:clamp(26px,3vw,54px);height:3px;margin:0 12px;background:var(--stitch)}
+.atuty{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.atuty li{padding:13px 0 13px 30px;border-bottom:1px solid var(--line);position:relative;color:var(--ink2)}
+.atuty li::before{content:"";position:absolute;left:2px;top:22px;width:14px;height:8px;border-left:3px solid var(--coral);border-bottom:3px solid var(--coral);transform:rotate(-45deg)}
+.atuty b{color:var(--ink)}
+.kolaz{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:auto auto;gap:clamp(12px,1.2vw,20px)}
+.kolaz figure{margin:0;position:relative;border-radius:var(--r);overflow:hidden}
+.kolaz figure::after{content:"";position:absolute;inset:9px;border:1.6px dashed rgba(255,255,255,.85);border-radius:9px;pointer-events:none}
+.kolaz img{width:100%;height:100%;object-fit:cover}
+.kolaz .a{grid-row:span 2}
+.kolaz .a img{aspect-ratio:auto}
+
+/* zajecia - metki */
+.metki{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.4vw,26px)}
+.metka{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:34px clamp(22px,2vw,36px) 30px;display:flex;flex-direction:column}
+.metka::before{content:"";position:absolute;inset:8px;border:1.6px dashed #D5D7DE;border-radius:9px;pointer-events:none}
+.metka.wyr{background:var(--ink);color:#fff;border-color:var(--ink)}
+.metka.wyr::before{border-color:rgba(255,255,255,.3)}
+.czas{font:800 clamp(30px,2.6vw,42px)/1 Bri,Nun,sans-serif;margin:10px 0 4px}
+.czas small{font-size:.5em;font-weight:600}
+.metka .typ{font-size:15.5px;color:var(--mut);margin-bottom:18px}
+.metka.wyr .typ{color:#C9CAD2}
+.metka ul{list-style:none;padding:0;margin:0 0 26px;flex:1}
+.metka li{padding:9px 0 9px 22px;position:relative;border-top:1px solid var(--line);font-size:16px}
+.metka.wyr li{border-color:rgba(255,255,255,.14)}
+.metka li::before{content:"";position:absolute;left:0;top:19px;width:10px;height:3px;background:var(--coral);border-radius:2px}
+.metka .btn{align-self:flex-start}
+.zaj-dop{margin:30px 0 0;color:var(--ink2);max-width:80ch}
+
+/* ciemna */
+.ciem{background:var(--ink);color:#fff}
+.ciem .lead{color:#C9CAD2}
+.ciem-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(36px,5vw,96px);align-items:center}
+.ciem figure{margin:0;border-radius:var(--r);overflow:hidden;position:relative}
+.ciem figure::after{content:"";position:absolute;inset:9px;border:1.6px dashed rgba(255,255,255,.75);border-radius:9px}
+.ciem figure img{width:100%;aspect-ratio:7/6;object-fit:cover}
+.znajome{display:grid;gap:22px;margin:30px 0 36px}
+.znajome p{margin:0;padding-left:22px;border-left:3px solid var(--coral);color:#E4E5EA}
+.znajome b{color:#fff}
+.ciem .szew::after{background:var(--stitch)}
+
+/* galeria pas */
+.pas-w{width:min(calc(100vw - 2*clamp(16px,3vw,56px)),1840px);margin-inline:auto}
+.pas{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 3*16px)/4);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.pas::-webkit-scrollbar{display:none}
+.pas.drag{scroll-snap-type:none;cursor:grabbing}
+.pas a{display:block;scroll-snap-align:start;border-radius:var(--r);overflow:hidden;position:relative;aspect-ratio:4/3;background:var(--gray)}
+.pas a::after{content:"";position:absolute;inset:8px;border:1.5px dashed rgba(255,255,255,.8);border-radius:8px;opacity:0;transition:opacity .2s}
+.pas a:hover::after,.pas a:focus-visible::after{opacity:1}
+.pas img{width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none;transition:transform .4s ease}
+.pas a:hover img{transform:scale(1.03)}
+.nav{display:flex;gap:10px}
+.nav button{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--ink);background:#fff;color:var(--ink);cursor:pointer;font:700 20px/1 Nun,sans-serif}
+.nav button:hover:not(:disabled){background:var(--ink);color:#fff}
+.nav button:disabled{opacity:.3;cursor:default}
+
+/* opinie */
+.op-g{display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,1fr);gap:clamp(18px,2vw,32px);align-items:stretch}
+.op{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 20px)/2);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.op::-webkit-scrollbar{display:none}
+.op.drag{scroll-snap-type:none;cursor:grabbing}
+.op blockquote{margin:0;scroll-snap-align:start;background:#fff;border-radius:var(--r);padding:clamp(26px,2.4vw,40px);display:flex;flex-direction:column;position:relative;user-select:none}
+.op blockquote::before{content:"";position:absolute;inset:8px;border:1.6px dashed #D5D7DE;border-radius:9px;pointer-events:none}
+.op blockquote p{font-size:17px;color:var(--ink2);flex:1}
+.op blockquote p:first-child{font:700 clamp(19px,1.4vw,23px)/1.3 Bri,Nun,sans-serif;color:var(--ink);flex:0 0 auto;margin-bottom:14px}
+.op cite{font-style:normal;font-weight:700;display:block}
+.op cite span{display:block;font-weight:400;color:var(--mut);font-size:15px}
+.list-dz{margin:0;background:#fff;border-radius:var(--r);padding:20px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.list-dz::before{content:"";position:absolute;inset:8px;border:1.6px dashed #D5D7DE;border-radius:9px;pointer-events:none}
+.list-dz img{width:100%;height:auto}
+.list-dz figcaption{font-size:15px;color:var(--mut);margin-top:12px;text-align:center}
+.op-nav{margin-top:22px}
+
+/* sezon */
+.sez{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(36px,5vw,96px);align-items:center}
+.sez figure{margin:0;border-radius:var(--r);overflow:hidden;position:relative}
+.sez figure::after{content:"";position:absolute;inset:9px;border:1.6px dashed rgba(255,255,255,.85);border-radius:9px}
+.sez figure img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.sez-l{list-style:none;padding:0;margin:0}
+.sez-l li{padding:22px 0;border-bottom:3px solid transparent;border-image:var(--stitch) 1;display:grid;grid-template-columns:minmax(0,1fr);gap:4px}
+.sez-l li:last-child{border-image:none;border-bottom:0}
+.sez-l h3{font-size:clamp(20px,1.5vw,24px)}
+.sez-l p{margin:0;color:var(--mut)}
+
+/* o nas - koral */
+.onas{background:var(--coral);color:var(--ink)}
+.onas-g{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(36px,5vw,96px);align-items:center}
+.onas figure{margin:0;background:#fff;border-radius:var(--r);overflow:hidden;position:relative;padding:18px 18px 0}
+.onas figure::after{content:"";position:absolute;inset:8px;border:1.6px dashed rgba(23,23,27,.35);border-radius:9px;pointer-events:none}
+.onas figure img{width:100%;aspect-ratio:634/860;object-fit:cover;object-position:50% 20%}
+.onas figcaption{font-size:15px;padding:12px 4px 18px;color:var(--ink2)}
+.onas .szew::after{background:repeating-linear-gradient(90deg,var(--ink) 0 11px,transparent 11px 19px)}
+.onas p{font-size:clamp(17px,1.2vw,19.5px);max-width:62ch}
+.onas .lead{color:var(--ink)}
+
+/* kontakt */
+.kont{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(28px,4vw,72px);align-items:start}
+form{background:#fff;border-radius:var(--r);padding:clamp(24px,2.6vw,44px);position:relative}
+form::before{content:"";position:absolute;inset:8px;border:1.6px dashed #D5D7DE;border-radius:9px;pointer-events:none}
+.pola{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 18px;position:relative}
+.pole{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pole.c{grid-column:1/-1}
+label{font-weight:700;font-size:15px}
+input,select,textarea{font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1.5px solid #C9CCD5;border-radius:10px;padding:13px 14px;width:100%;min-width:0}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(255,129,110,.45)}
+[aria-invalid=true]{border-color:#C0392B}
+.zg{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:14.5px;color:var(--mut);line-height:1.45}
+.zg input{width:20px;height:20px;flex:none;margin-top:1px;accent-color:var(--ink)}
+form .btn{margin-top:22px;position:relative}
+#msg{margin:16px 0 0;font-weight:700;position:relative}
+.dane{display:grid;gap:22px}
+.dane h3{font-size:19px;margin-bottom:4px}
+.dane p{margin:0;color:var(--ink2)}
+.dane a{font-weight:700;text-decoration:none;border-bottom:2px solid var(--coral)}
+.dane .duzy{font:800 clamp(26px,2.2vw,36px)/1.1 Bri,Nun,sans-serif;border:0}
+#mapa{border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;background:#E3E5EA;position:relative}
+#mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* stopka */
+footer{background:var(--ink);color:#B9BAC3;padding:clamp(48px,5vw,80px) 0 28px;font-size:15.5px}
+.st-g{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:32px}
+footer h3{color:#fff;font-size:17px;margin-bottom:12px}
+footer ul{list-style:none;padding:0;margin:0}
+footer li{margin:6px 0}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+.st-logo img{width:150px}
+.st-d{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;border-top:1px solid #2E2F36;margin-top:40px;padding-top:22px;font-size:14px}
+
+.wylinka-badge{display:inline-flex;align-items:center;gap:.4em;color:inherit;text-decoration:none;font-size:.875em;line-height:1;opacity:.85}
+.wylinka-badge:hover,.wylinka-badge:focus-visible{opacity:1}
+.wylinka-badge:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:2px}
+.wylinka-badge svg{width:18px;height:18px;flex:none;overflow:visible}
+.wylinka-badge b{font-weight:600}
+.wylinka-badge .wy-old{opacity:.45;transform-origin:40px 30px;transition:transform .32s cubic-bezier(.3,.7,.4,1),opacity .32s ease-out}
+.wylinka-badge .wy-pod{opacity:0;transition:opacity .2s ease-out .08s}
+.wylinka-badge:hover .wy-old,.wylinka-badge:focus-visible .wy-old{transform:translate(9px,7px) rotate(9deg);opacity:0}
+.wylinka-badge:hover .wy-pod,.wylinka-badge:focus-visible .wy-pod{opacity:1}
+@media (prefers-reduced-motion:reduce){.wylinka-badge .wy-old,.wylinka-badge .wy-pod{transition:none}.wylinka-badge:hover .wy-old,.wylinka-badge:focus-visible .wy-old{transform:none;opacity:.45}.wylinka-badge:hover .wy-pod,.wylinka-badge:focus-visible .wy-pod{opacity:0}}
+
+
+
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:90;background:rgba(14,14,17,.94);display:none;align-items:center;justify-content:center;padding:56px 64px}
+#lb.otw{display:flex}
+#lb img{max-width:100%;max-height:calc(100vh - 140px);border-radius:8px}
+#lb p{position:absolute;left:0;right:0;bottom:16px;text-align:center;color:#ddd;font-size:15px;margin:0}
+#lb button{position:absolute;width:48px;height:48px;border-radius:50%;border:0;background:#fff;color:var(--ink);cursor:pointer;font:700 22px/1 Nun,sans-serif}
+#lb .x{top:14px;right:14px}#lb .p{left:12px;top:50%}#lb .n{right:12px;top:50%}
+
+/* pasek mobilny */
+#mob{display:none}
+
+@media (max-width:1279px){.pas{grid-auto-columns:calc((100% - 2*16px)/3)}}
+@media (max-width:1180px){
+  .menu .tel{display:none}
+  .rz{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:1023px){
+  .metki{grid-template-columns:minmax(0,1fr)}
+  .jak,.ciem-g,.sez,.onas-g,.kont{grid-template-columns:minmax(0,1fr)}
+  .op-g{grid-template-columns:minmax(0,1fr)}
+  .list-dz{max-width:520px}
+  .st-g{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .st-g>div:first-child{grid-column:1/-1}
+  .pas{grid-auto-columns:calc((100% - 16px)/2.2)}
+}
+@media (max-width:899px){
+  :root{--hh:64px}
+  .logo img{width:128px}
+  #burger{display:block}
+  .menu{position:fixed;left:0;right:0;top:var(--hh);bottom:0;background:#fff;flex-direction:column;align-items:stretch;gap:0;padding:12px var(--gut) 32px;transform:translateX(100%);visibility:hidden;transition:transform .25s ease,visibility .25s;overflow-y:auto}
+  #top.open .menu{transform:none;visibility:visible}
+  .menu a:not(.btn){font:700 22px/1.2 Bri,Nun,sans-serif;color:var(--ink);padding:16px 0;border-bottom:1px solid var(--line)}
+  .menu a.on::after{bottom:10px;right:auto;width:60px}
+  .menu .tel{display:flex;margin-top:22px}
+  .menu .btn{margin-top:18px;min-height:56px}
+  .hero{flex-direction:column;align-items:stretch;min-height:calc(100svh - var(--hh))}
+  .hero-foto{position:relative;inset:auto;flex:1 1 0;min-height:min(62vw,30svh);max-height:56svh}
+  .hero-foto img{position:absolute;inset:0;object-position:50% 30%}
+  .hero-foto::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(rgba(240,238,250,0),var(--studio))}
+  .hero-in{flex:0 0 auto;padding:6px 0 max(26px,3.6svh)}
+  .hero-tx{max-width:none}
+  .hero h1{font-size:clamp(28px,min(8.2vw,4.6svh),44px);margin-bottom:max(12px,1.8svh)}
+  .hero h1 span{font-size:.6em;margin-top:.35em}
+  .hero .lead{font-size:clamp(16px,min(4.3vw,2.5svh),19px);margin-bottom:24px;line-height:1.5}
+  .hero-cta{gap:12px}
+  .hero-cta .btn{width:100%}
+  .hero-adr{font-size:14.5px}
+  .kolaz{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto}
+  .kolaz .a{grid-row:auto}
+  .kolaz figure:nth-child(3){display:none}
+  .kolaz img{aspect-ratio:4/3}
+  .metki{display:grid;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:86%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+  .metki::-webkit-scrollbar{display:none}
+  .metka{scroll-snap-align:start}
+  .sez figure img{aspect-ratio:16/10}
+  .onas figure{max-width:420px}
+  .onas figure img{aspect-ratio:4/4.2}
+  .op{grid-auto-columns:88%}
+  #mob{display:grid;grid-template-columns:auto 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;padding:10px var(--gut) calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s ease}
+  #mob.widac{transform:none}
+  #mob a{min-height:50px}
+  #mob .t{display:inline-flex;align-items:center;gap:8px;padding:0 18px;border:1.5px solid var(--ink);border-radius:12px;font-weight:700;text-decoration:none}
+  footer{padding-bottom:96px}
+}
+@media (max-width:640px){
+  body{font-size:16.5px}
+  .rz{gap:22px 14px}
+  .rz p{font-size:15px}
+  .pola{grid-template-columns:minmax(0,1fr)}
+  .pas{grid-auto-columns:84%}
+  .droga li+li::before{width:22px;margin:0 8px}
+  .glowa .nav{display:none}
+  #lb{padding:56px 8px}
+  #lb .p,#lb .n{top:auto;bottom:44px}
+}
+@media (max-width:420px){
+  .rz{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .rz h3{font-size:19px;margin-top:12px}
+  .kar-kropki{bottom:12px}
+}
+@media (max-width:899px) and (max-height:700px){
+  .hero-foto{min-height:min(56vw,24svh)}
+  .hero h1 span{margin-top:.25em}
+  .hero-in{padding-bottom:30px}
+}
+@media (min-width:900px) and (max-height:760px){
+  .hero h1{font-size:clamp(36px,3.4vw,58px)}
+  .hero-in{padding:28px 0}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header id="top">
+  <div class="wrap bar">
+    <a class="logo" href="#start" aria-label="Manubbies - strona główna"><img src="img/logo.webp" width="360" height="94" alt="Manubbies - The passion of making"></a>
+    <nav class="menu" id="menu" aria-label="Menu główne">
+      <a href="#rzemiosla">Co tworzymy</a>
+      <a href="#zajecia">Zajęcia</a>
+      <a href="#sezon">Półkolonie</a>
+      <a href="#prace">Prace dzieci</a>
+      <a href="#opinie">Opinie</a>
+      <a href="#o-nas">O nas</a>
+      <a class="tel" href="tel:+48782258267"><svg viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5.2 2.8l2.4 3.3-1.6 2a10 10 0 0 0 5.9 5.9l2-1.6 3.3 2.4-1.2 2.9C9.2 17.6 2.4 10.8 2.3 4z"/></svg>782 258 267</a>
+      <a class="btn sm" href="#kontakt">Zapisz dziecko</a>
+    </nav>
+    <button id="burger" aria-label="Otwórz menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="start" aria-labelledby="h1">
+  <picture class="hero-foto">
+    <source media="(max-width: 899px)" srcset="img/hero-m-480.webp 480w, img/hero-m-760.webp 760w, img/hero-m-1000.webp 1000w" sizes="100vw">
+    <img src="img/hero-2400.webp" srcset="img/hero-1600.webp 1600w, img/hero-2400.webp 2400w, img/hero-3000.webp 3000w" sizes="(min-aspect-ratio: 12/5) 100vw, 240vh" width="2400" height="1000" fetchpriority="high" alt="Dzieci w czapkach, z torebkami i maskotkami uszytymi na zajęciach Manubbies">
+  </picture>
+  <div class="hero-in">
+    <div class="hero-tx">
+      <h1 id="h1">Warsztaty szycia i projektowania dla dzieci na Ursynowie <span>Od pomysłu do własnej, gotowej rzeczy</span></h1>
+      <p class="lead">Dzieci i młodzież 7-17 lat wymyślają i wykonują własne bluzy, torebki, biżuterię, a nawet buty. Grupy 4-6 osób, każdy pracuje nad swoim projektem.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#kontakt">Zapisz na zajęcia próbne</a>
+        <p class="hero-adr" style="margin:0">ul. Przy Bażantarni 13, Warszawa<br>tel. <a href="tel:+48782258267">782 258 267</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sek" id="rzemiosla" aria-labelledby="h-rz">
+  <div class="wrap">
+    <div class="glowa">
+      <h2 id="h-rz" class="szew">Cztery rzemiosła w jednej pracowni</h2>
+      <p class="lead">Krawiectwo, kaletnictwo, biżuteria i szewstwo. Na każdej karcie można przesunąć zdjęcia palcem albo myszką.</p>
+    </div>
+    <div class="rz">
+      <article>
+        <div class="kar" data-kar>
+          <div class="kar-tor">
+            <img src="img/kraw1-640.webp" srcset="img/kraw1-400.webp 400w, img/kraw1-640.webp 640w" sizes="(max-width:1180px) 46vw, 23vw" width="480" height="600" loading="lazy" alt="Dziewczynka w bluzie z naszytymi zdobieniami">
+            <img src="img/kraw2-640.webp" srcset="img/kraw2-400.webp 400w, img/kraw2-640.webp 640w" sizes="(max-width:1180px) 46vw, 23vw" width="545" height="681" loading="lazy" alt="Strój uszyty na zajęciach">
+            <img src="img/kraw3-640.webp" srcset="img/kraw3-400.webp 400w, img/kraw3-640.webp 640w" sizes="(max-width:1180px) 46vw, 23vw" width="599" height="749" loading="lazy" alt="Dziewczynka z dużą maskotką uszytą na zajęciach">
+            <img src="img/kraw4-640.webp" srcset="img/kraw4-400.webp 400w, img/kraw4-640.webp 640w" sizes="(max-width:1180px) 46vw, 23vw" width="611" height="764" loading="lazy" alt="Dziewczynka z uszytą poduszką w pracowni">
+          </div>
+        </div>
+        <h3>Krawiectwo</h3>
+        <p>Bluzy, spodnie, spódnice, czapki i maskotki. Szyjemy na elektronicznych maszynach Janome.</p>
+      </article>
+      <article>
+        <div class="kar" data-kar>
+          <div class="kar-tor">
+            <img src="img/kal1-640.webp" srcset="img/kal1-400.webp 400w, img/kal1-640.webp 640w" sizes="(max-width:1180px) 46vw, 23vw" width="628" height="785" loading="lazy" alt="Trzy dziewczynki z własnymi torebkami">
+            <img src="img/kal2-640.webp" srcset="img/kal2-400.webp 400w, img/kal2-640.webp 640w" sizes="(max-width:1180px) 46vw, 23vw" width="410" height="512" loading="lazy" alt="Torebka-kostka z łańcuszkiem">
+            <img src="img/kal3-640.webp" srcset="img/kal3-400.webp 400w, img/kal3-640.webp 640w" sizes="(max-width:1180px) 46vw, 23vw" width="398" height="498" loading="lazy" alt="Praca na prasie kaletniczej">
+            <img src="img/kal4-640.webp" srcset="img/kal4-400.webp 400w, img/kal4-640.webp 640w" sizes="(max-width:1180px) 46vw, 23vw" width="640" height="800" loading="lazy" alt="Saszetka zaprojektowana na zajęciach">
+          </div>
+        </div>
+        <h3>Kaletnictwo</h3>
+        <p>Torebki, saszetki, piórniki i plecaki. Nity i oczka zakłada się na prasach kaletniczych.</p>
+      </article>
+      <article>
+        <div class="kar" data-kar>
+          <div class="kar-tor">
+            <img src="img/biz1-640.webp" srcset="img/biz1-400.webp 400w, img/biz1-640.webp 640w" sizes="(max-width:1180px) 46vw, 23vw" width="422" height="527" loading="lazy" alt="Dziewczynka pokazuje własny kolczyk">
+            <img src="img/biz2-640.webp" srcset="img/biz2-400.webp 400w, img/biz2-640.webp 640w" sizes="(max-width:1180px) 46vw, 23vw" width="411" height="514" loading="lazy" alt="Kolczyki w kształcie pierniczków">
+            <img src="img/biz3-640.webp" srcset="img/biz3-400.webp 400w, img/biz3-640.webp 640w" sizes="(max-width:1180px) 46vw, 23vw" width="359" height="449" loading="lazy" alt="Bransoletka z masy plastycznej">
+            <img src="img/biz4-640.webp" srcset="img/biz4-400.webp 400w, img/biz4-640.webp 640w" sizes="(max-width:1180px) 46vw, 23vw" width="308" height="385" loading="lazy" alt="Dziewczynka przy pracy nad biżuterią">
+          </div>
+        </div>
+        <h3>Biżuteria</h3>
+        <p>Kolczyki, bransoletki, breloki i broszki z masy plastycznej, koralików i półproduktów metalowych.</p>
+      </article>
+      <article>
+        <div class="kar" data-kar>
+          <div class="kar-tor">
+            <img src="img/szew1-640.webp" srcset="img/szew1-400.webp 400w, img/szew1-640.webp 640w" sizes="(max-width:1180px) 46vw, 23vw" width="379" height="474" loading="lazy" alt="Sandały z żółtymi rzemykami">
+            <img src="img/szew2-640.webp" srcset="img/szew2-400.webp 400w, img/szew2-640.webp 640w" sizes="(max-width:1180px) 46vw, 23vw" width="326" height="407" loading="lazy" alt="Czerwone ocieplacze na buty z pomponami">
+            <img src="img/szew3-640.webp" srcset="img/szew3-400.webp 400w, img/szew3-640.webp 640w" sizes="(max-width:1180px) 46vw, 23vw" width="591" height="739" loading="lazy" alt="Klapki z kokardą">
+          </div>
+        </div>
+        <h3>Szewstwo</h3>
+        <p>Sandały i inne buty według własnego projektu. Tak, w pracowni powstają też buty.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sek szara" id="jak" aria-labelledby="h-jak">
+  <div class="wrap jak">
+    <div>
+      <h2 id="h-jak" class="szew">Każde dziecko szyje swój własny projekt</h2>
+      <p class="lead">Nie zadajemy całej grupie jednego tematu. Uczestnik sam wybiera, co chce zrobić, a prowadzący przeprowadza go przez kolejne etapy w jego tempie. Praca nad jednym projektem zwykle trwa dłużej niż jedne zajęcia.</p>
+      <ol class="droga" aria-label="Droga projektu">
+        <li>Inspiracja</li><li>Pomysł</li><li>Projekt</li><li>Efekt</li>
+      </ol>
+      <ul class="atuty">
+        <li><b>Grupy 4-6 osób</b> - prowadzący ma czas dla każdego.</li>
+        <li><b>Pomoc dobrana do dziecka</b> - dla początkujących i zaawansowanych.</li>
+        <li><b>Prawdziwe narzędzia:</b> maszyny komputerowe, ploter do precyzyjnego wycinania, prasy kaletnicze, aplikatory.</li>
+        <li><b>Materiały w cenie:</b> tkaniny, folie, aplikacje, półprodukty metalowe i plastikowe.</li>
+        <li><b>Terminy poranne, popołudniowe i wieczorne</b>, z możliwością odrabiania zajęć.</li>
+      </ul>
+    </div>
+    <div class="kolaz">
+      <figure class="a"><img src="img/pracownia-regaly-800.webp" srcset="img/pracownia-regaly-480.webp 480w, img/pracownia-regaly-800.webp 800w" sizes="(max-width:1023px) 50vw, 28vw" width="593" height="445" loading="lazy" alt="Regały z tkaninami w pracowni Manubbies"></figure>
+      <figure><img src="img/pracownia-maszyny-800.webp" srcset="img/pracownia-maszyny-480.webp 480w, img/pracownia-maszyny-800.webp 800w" sizes="(max-width:1023px) 50vw, 22vw" width="500" height="373" loading="lazy" alt="Rząd maszyn do szycia w pracowni"></figure>
+      <figure><img src="img/pracownia-stoly-800.webp" srcset="img/pracownia-stoly-480.webp 480w, img/pracownia-stoly-800.webp 800w" sizes="(max-width:1023px) 50vw, 22vw" width="601" height="401" loading="lazy" alt="Duży stół do kreślenia wykrojów"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sek" id="zajecia" aria-labelledby="h-zaj">
+  <div class="wrap">
+    <div class="glowa">
+      <h2 id="h-zaj" class="szew">Zajęcia w roku szkolnym 2026/27</h2>
+      <p class="lead">Jeśli jeszcze nas nie znacie, zacznijcie od zajęć próbnych. Wszystkie materiały i pomoce są w cenie.</p>
+    </div>
+    <div class="metki">
+      <div class="metka">
+        <h3>Próbne</h3>
+        <p class="czas">70 lub 90 <small>min</small></p>
+        <p class="typ">jednorazowe warsztaty</p>
+        <ul>
+          <li>W sam raz na mały projekt</li>
+          <li>Dziecko poznaje pracownię i prowadzącego</li>
+          <li>Materiały i pomoce w cenie</li>
+        </ul>
+        <a class="btn sm" href="#kontakt">Zapisz na próbne</a>
+      </div>
+      <div class="metka">
+        <h3>Regularne</h3>
+        <p class="czas">70 <small>min / tydzień</small></p>
+        <p class="typ">raz w tygodniu przez cały rok szkolny</p>
+        <ul>
+          <li>Własne projekty prowadzone przez kilka zajęć</li>
+          <li>Materiały i pomoce w cenie</li>
+          <li>Możliwość transportu dziecka ze szkół nr 340 i 47</li>
+        </ul>
+        <a class="btn sm" href="#kontakt">Zapytaj o termin</a>
+      </div>
+      <div class="metka wyr">
+        <h3>Regularne ekstra</h3>
+        <p class="czas">90 <small>min / tydzień</small></p>
+        <p class="typ">raz w tygodniu przez cały rok szkolny</p>
+        <ul>
+          <li>Dodatkowe rodzaje projektów</li>
+          <li>Praca na ploterze</li>
+          <li>Możliwość transportu dziecka ze szkół nr 340 i 47</li>
+        </ul>
+        <a class="btn sm" href="#kontakt">Zapytaj o termin</a>
+      </div>
+    </div>
+    <p class="zaj-dop">Poza zajęciami cotygodniowymi prowadzimy też półkolonie, urodziny i okazjonalne warsztaty rodzinne, np. świąteczne.</p>
+  </div>
+</section>
+
+<section class="sek ciem" id="dlaczego" aria-labelledby="h-ciem">
+  <div class="wrap ciem-g">
+    <figure><img src="img/kombinerki-800.webp" srcset="img/kombinerki-480.webp 480w, img/kombinerki-800.webp 800w" sizes="(max-width:1023px) 92vw, 44vw" width="747" height="648" loading="lazy" alt="Dziewczynka pracuje szczypcami nad własnym projektem"></figure>
+    <div>
+      <h2 id="h-ciem" class="szew">Brzmi znajomo?</h2>
+      <div class="znajome">
+        <p><b>Agnieszka</b> nie wierzy w siebie. Często upewnia się, czy jej decyzje są słuszne, i uważa, że nic jej nie wychodzi.</p>
+        <p><b>Hubert</b> ma sto pomysłów na minutę, ale rzadko kończy to, co zaczął, i szybko traci entuzjazm.</p>
+      </div>
+      <p class="lead">Przejście całej drogi od pomysłu do gotowej rzeczy uczy więcej niż samego szycia: planowania, cierpliwości, kończenia tego, co się zaczęło, i wiary w siebie. To dziecko jest pomysłodawcą i twórcą, a prowadzący wspiera je w trudniejszych momentach.</p>
+      <a class="btn" href="#kontakt">Zapisz na zajęcia próbne</a>
+    </div>
+  </div>
+</section>
+
+<section class="sek" id="prace" aria-labelledby="h-pr">
+  <div class="wrap glowa">
+    <div>
+      <h2 id="h-pr" class="szew">Prace dzieci</h2>
+      <p class="lead" style="margin:0">Zdjęcia z zajęć w roku szkolnym i z półkolonii, prace początkujących i zaawansowanych.</p>
+    </div>
+    <div class="nav" data-nav="pas"><button data-k="-1" aria-label="Poprzednie zdjęcia">&#8592;</button><button data-k="1" aria-label="Następne zdjęcia">&#8594;</button></div>
+  </div>
+  <div class="pas-w">
+    <div class="pas" id="pas" data-tor data-grupa>
+      <a href="img/g01-800.webp" data-lb="img/g01-800.webp"><img src="img/g01-480.webp" srcset="img/g01-480.webp 480w, img/g01-800.webp 800w" sizes="(max-width:640px) 84vw, (max-width:1279px) 33vw, 24vw" width="480" height="360" loading="lazy" alt="Uśmiechnięta dziewczynka przy stole w pracowni"></a>
+      <a href="img/g02-800.webp" data-lb="img/g02-800.webp"><img src="img/g02-480.webp" srcset="img/g02-480.webp 480w, img/g02-800.webp 800w" sizes="(max-width:640px) 84vw, (max-width:1279px) 33vw, 24vw" width="459" height="344" loading="lazy" alt="Dziewczynka przy elektronicznej maszynie do szycia"></a>
+      <a href="img/g03-800.webp" data-lb="img/g03-800.webp"><img src="img/g03-480.webp" srcset="img/g03-480.webp 480w, img/g03-800.webp 800w" sizes="(max-width:640px) 84vw, (max-width:1279px) 33vw, 24vw" width="290" height="218" loading="lazy" alt="Dziewczynka składa wieniec z pistoletem do kleju"></a>
+      <a href="img/g04-800.webp" data-lb="img/g04-800.webp"><img src="img/g04-480.webp" srcset="img/g04-480.webp 480w, img/g04-800.webp 800w" sizes="(max-width:640px) 84vw, (max-width:1279px) 33vw, 24vw" width="322" height="242" loading="lazy" alt="Dziewczynka przy prasie kaletniczej"></a>
+      <a href="img/g05-800.webp" data-lb="img/g05-800.webp"><img src="img/g05-480.webp" srcset="img/g05-480.webp 480w, img/g05-800.webp 800w" sizes="(max-width:640px) 84vw, (max-width:1279px) 33vw, 24vw" width="480" height="360" loading="lazy" alt="Nawlekanie koralików na biżuterię"></a>
+      <a href="img/g06-800.webp" data-lb="img/g06-800.webp"><img src="img/g06-480.webp" srcset="img/g06-480.webp 480w, img/g06-800.webp 800w" sizes="(max-width:640px) 84vw, (max-width:1279px) 33vw, 24vw" width="480" height="360" loading="lazy" alt="Dzieci projektują przy stole z próbnikiem kolorów"></a>
+      <a href="img/g07-800.webp" data-lb="img/g07-800.webp"><img src="img/g07-480.webp" srcset="img/g07-480.webp 480w, img/g07-800.webp 800w" sizes="(max-width:640px) 84vw, (max-width:1279px) 33vw, 24vw" width="480" height="360" loading="lazy" alt="Dzieci malują przy wspólnym stole"></a>
+      <a href="img/g08-800.webp" data-lb="img/g08-800.webp"><img src="img/g08-480.webp" srcset="img/g08-480.webp 480w, img/g08-800.webp 800w" sizes="(max-width:640px) 84vw, (max-width:1279px) 33vw, 24vw" width="480" height="360" loading="lazy" alt="Dziewczynka w uszytych rękawiczkach-maskotkach"></a>
+      <a href="img/g09-800.webp" data-lb="img/g09-800.webp"><img src="img/g09-480.webp" srcset="img/g09-480.webp 480w, img/g09-800.webp 800w" sizes="(max-width:640px) 84vw, (max-width:1279px) 33vw, 24vw" width="480" height="360" loading="lazy" alt="Sukienka z wycięciem na plecach i naszywką"></a>
+      <a href="img/g10-800.webp" data-lb="img/g10-800.webp"><img src="img/g10-480.webp" srcset="img/g10-480.webp 480w, img/g10-800.webp 800w" sizes="(max-width:640px) 84vw, (max-width:1279px) 33vw, 24vw" width="454" height="340" loading="lazy" alt="Pluszowy piórnik-renifer"></a>
+      <a href="img/g11-800.webp" data-lb="img/g11-800.webp"><img src="img/g11-480.webp" srcset="img/g11-480.webp 480w, img/g11-800.webp 800w" sizes="(max-width:640px) 84vw, (max-width:1279px) 33vw, 24vw" width="480" height="360" loading="lazy" alt="Poduszka w kształcie piernika"></a>
+      <a href="img/g13-800.webp" data-lb="img/g13-800.webp"><img src="img/g13-480.webp" srcset="img/g13-480.webp 480w, img/g13-800.webp 800w" sizes="(max-width:640px) 84vw, (max-width:1279px) 33vw, 24vw" width="480" height="360" loading="lazy" alt="Dziewczynka w koszuli w kratę z własnymi pierścionkami"></a>
+      <a href="img/g14-800.webp" data-lb="img/g14-800.webp"><img src="img/g14-480.webp" srcset="img/g14-480.webp 480w, img/g14-800.webp 800w" sizes="(max-width:640px) 84vw, (max-width:1279px) 33vw, 24vw" width="480" height="360" loading="lazy" alt="Dziewczynka w uszytej czapce z torebką"></a>
+      <a href="img/g15-800.webp" data-lb="img/g15-800.webp"><img src="img/g15-480.webp" srcset="img/g15-480.webp 480w, img/g15-800.webp 800w" sizes="(max-width:640px) 84vw, (max-width:1279px) 33vw, 24vw" width="480" height="360" loading="lazy" alt="Dziewczynka na uszytym pufie"></a>
+    </div>
+  </div>
+</section>
+
+<section class="sek szara" id="opinie" aria-labelledby="h-op">
+  <div class="wrap">
+    <div class="glowa">
+      <h2 id="h-op" class="szew">Co mówią rodzice</h2>
+      <div class="nav" data-nav="op"><button data-k="-1" aria-label="Poprzednia opinia">&#8592;</button><button data-k="1" aria-label="Następna opinia">&#8594;</button></div>
+    </div>
+    <div class="op-g">
+      <div class="op" id="op" data-tor>
+        <blockquote>
+          <p>„Moja 9-letnia córka nauczyła się zaprojektować i uszyć sobie ubranie.”</p>
+          <p>Samodzielnie zaprojektowała i uszyła dla siebie czapkę w kształcie misia i nosiła ją przez całą zimę. Pani Maja traktuje każde dziecko indywidualnie, a odrobienie zajęć w innym terminie nigdy nie było problemem.</p>
+          <cite>Inga Mroczek <span>mama 9-letniej Mai</span></cite>
+        </blockquote>
+        <blockquote>
+          <p>„Uczy się planowania, cierpliwości, wytrwałości i wiary w siebie.”</p>
+          <p>Ulubione zajęcia mojej córki. Dla niej najważniejsze, że dobrze się na nich bawi. Dla mnie, że uczy się tego, co może jej się przydać w przyszłości.</p>
+          <cite>Pani Magdalena <span>mama 10-letniej Mai</span></cite>
+        </blockquote>
+        <blockquote>
+          <p>„Młodsza nie wyobraża sobie tygodnia bez tych zajęć.”</p>
+          <p>Starsza córka chodzi już drugi rok. Warsztaty pomogły jej w koncentracji i opanowaniu szycia, a młodsza rozwinęła wyobraźnię i chęć tworzenia.</p>
+          <cite>Gabriela Garlicka-Pytlak <span>mama Lili i Ali</span></cite>
+        </blockquote>
+        <blockquote>
+          <p>„Każdy może pracować we własnym tempie.”</p>
+          <p>Marta zawsze niecierpliwie czeka na zajęcia, a potem z dumą pokazuje swoje prace. Bardzo lubi samodzielny wybór projektu.</p>
+          <cite>Paweł Sztejter <span>tata 12-letniej Marty</span></cite>
+        </blockquote>
+        <blockquote>
+          <p>„Uczą dziecko porządku i systematyczności.”</p>
+          <p>Zdaniem córki zajęcia są ciekawe i bardzo wciągają. Pokazują, że zaangażowaniem i pracą można osiągnąć cel, który cieszy.</p>
+          <cite>Małgorzata Demczuk <span>mama 9-letniej Julki</span></cite>
+        </blockquote>
+      </div>
+      <figure class="list-dz">
+        <img src="img/opinia-gosia-800.webp" srcset="img/opinia-gosia-480.webp 480w, img/opinia-gosia-800.webp 800w" sizes="(max-width:1023px) 90vw, 28vw" width="800" height="619" loading="lazy" alt="Odręczny liścik: Jak dla mnie super jest to, że mogę samodecydować, co robię. Gosia, 9 lat">
+        <figcaption>Liścik od Gosi, 9 lat</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sek" id="sezon" aria-labelledby="h-sez">
+  <div class="wrap sez">
+    <figure><img src="img/g12-800.webp" srcset="img/g12-480.webp 480w, img/g12-800.webp 800w" sizes="(max-width:1023px) 92vw, 42vw" width="561" height="421" loading="lazy" alt="Świąteczny wieniec z kawałków tkaniny z czerwoną kokardą"></figure>
+    <div>
+      <h2 id="h-sez" class="szew">Ferie, wakacje i święta w pracowni</h2>
+      <ul class="sez-l">
+        <li><h3>Półkolonie</h3><p>W ferie zimowe, w Wielkanoc i latem. Kilka dni projektowania, szycia, zabaw i wyjść na świeże powietrze.</p></li>
+        <li><h3>Warsztaty rodzinne przed świętami</h3><p>Wieniec, poduszka, bombki albo maskotka. Wspólny czas nad jedną rzeczą, bez pośpiechu i bez ekranów. Materiały, narzędzia i sprzątanie są po naszej stronie.</p></li>
+        <li><h3>Wieczór szycia dla kobiet</h3><p>Trzy godziny tylko dla siebie, przy winie bezalkoholowym. Wychodzisz z rzeczą zrobioną od początku do końca.</p></li>
+        <li><h3>Urodziny</h3><p>Przyjęcie urodzinowe w pracowni, przy wspólnym projekcie.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sek onas" id="o-nas" aria-labelledby="h-on">
+  <div class="wrap onas-g">
+    <figure>
+      <img src="img/maja-800.webp" srcset="img/maja-480.webp 480w, img/maja-800.webp 800w" sizes="(max-width:1023px) 92vw, 34vw" width="634" height="935" loading="lazy" alt="Maja Hnat z uczestniczkami zajęć w uszytych spódnicach">
+      <figcaption>Maja Hnat z uczestniczkami zajęć</figcaption>
+    </figure>
+    <div>
+      <h2 id="h-on" class="szew">Manubbies powstało z pasji do tworzenia</h2>
+      <p class="lead">Chcemy, żeby pracownia była dla dzieci bezpiecznym miejscem, w którym rozwiną swój potencjał i pasję tworzenia.</p>
+      <p>Manubbies to warsztaty dla dzieci i młodzieży 7-17 lat, które łączą pracę manualną ze wspieraniem samodzielności, aktywności, odpowiedzialności, kreatywności i planowania. Uczestnicy samodzielnie wykonują praktyczne przedmioty: akcesoria, biżuterię, odzież, obuwie, rzeczy do szkoły i do swojego pokoju.</p>
+      <p>Pod empatycznym i czujnym okiem prowadzącego poznają kaletnictwo, krawiectwo, tworzenie biżuterii i szewstwo. Prowadzący uczy potrzebnych umiejętności i wspiera w trudnych momentach.</p>
+      <a class="btn ink" href="#kontakt">Napisz do nas</a>
+    </div>
+  </div>
+</section>
+
+<section class="sek szara" id="kontakt" aria-labelledby="h-ko">
+  <div class="wrap">
+    <div class="glowa">
+      <h2 id="h-ko" class="szew">Zapisz dziecko na zajęcia próbne</h2>
+      <p class="lead">Napisz, ile lat ma dziecko i jakie zajęcia Cię interesują. Odpowiemy z wolnymi terminami.</p>
+    </div>
+    <div class="kont">
+      <form id="form" novalidate>
+        <div class="pola">
+          <div class="pole"><label for="f-im">Imię rodzica</label><input id="f-im" name="imie" autocomplete="name" required></div>
+          <div class="pole"><label for="f-tel">Telefon</label><input id="f-tel" name="tel" type="tel" autocomplete="tel" required></div>
+          <div class="pole"><label for="f-em">E-mail</label><input id="f-em" name="email" type="email" autocomplete="email" required></div>
+          <div class="pole"><label for="f-wiek">Wiek dziecka</label><input id="f-wiek" name="wiek" inputmode="numeric" placeholder="np. 9 lat"></div>
+          <div class="pole c"><label for="f-rodz">Rodzaj zajęć</label>
+            <select id="f-rodz" name="rodzaj">
+              <option>Zajęcia próbne</option><option>Regularne 70 min</option><option>Regularne ekstra 90 min</option><option>Półkolonie</option><option>Urodziny</option><option>Warsztaty rodzinne</option>
+            </select></div>
+          <div class="pole c"><label for="f-wi">Wiadomość</label><textarea id="f-wi" name="wiadomosc" placeholder="Preferowane dni i godziny, pytania"></textarea></div>
+          <div class="pole c"><label class="zg"><input type="checkbox" required> Wyrażam zgodę na kontakt w sprawie zapisu. Szczegóły w polityce prywatności.</label></div>
+        </div>
+        <button class="btn" type="submit">Wyślij zgłoszenie</button>
+        <p id="msg" role="status" hidden>To podgląd strony - formularz nie wysyła wiadomości.</p>
+      </form>
+      <div class="dane">
+        <div><h3>Telefon</h3><p><a class="duzy" href="tel:+48782258267">782 258 267</a></p></div>
+        <div><h3>E-mail</h3><p><a href="mailto:maja@manubbies.pl">maja@manubbies.pl</a></p></div>
+        <div><h3>Pracownia</h3><p>ul. Przy Bażantarni 13, 02-793 Warszawa (Ursynów)</p></div>
+        <div id="mapa" data-src="https://maps.google.com/maps?q=Przy%20Ba%C5%BCantarni%2013%2C%2002-793%20Warszawa&amp;z=16&amp;output=embed" data-t="Mapa dojazdu: ul. Przy Bażantarni 13, Warszawa"></div>
+        <p><a href="https://www.facebook.com/manubbies" rel="noopener">Facebook</a> &nbsp; <a href="https://www.instagram.com/manubbies_pl/" rel="noopener">Instagram</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="st-g">
+      <div>
+        <a class="st-logo" href="#start"><img src="img/logo-w.webp" width="360" height="94" alt="Manubbies" loading="lazy"></a>
+        <p style="margin-top:16px;max-width:36ch">Warsztaty projektowania i szycia dla dzieci i młodzieży 7-17 lat na Ursynowie.</p>
+      </div>
+      <div><h3>Zajęcia</h3><ul><li><a href="#zajecia">W roku szkolnym</a></li><li><a href="#sezon">Półkolonie</a></li><li><a href="#sezon">Warsztaty rodzinne</a></li><li><a href="#prace">Prace dzieci</a></li></ul></div>
+      <div><h3>Kontakt</h3><ul><li><a href="tel:+48782258267">782 258 267</a></li><li><a href="mailto:maja@manubbies.pl">maja@manubbies.pl</a></li><li>ul. Przy Bażantarni 13<br>02-793 Warszawa</li></ul></div>
+      <div><h3>Dokumenty</h3><ul><li><a href="#kontakt">Regulamin</a></li><li><a href="#kontakt">Warunki uczestnictwa</a></li><li><a href="#kontakt">Polityka prywatności</a></li></ul></div>
+    </div>
+    <div class="st-d">
+      <span>&copy; <span id="rok">2026</span> Manubbies Sp. z o.o., ul. Zamkowa 3/16, 38-500 Sanok, KRS 0000877403</span>
+      <a class="wylinka-badge" href="https://wylinka.pl/?utm_source=manubbies.pl&amp;utm_medium=stopka&amp;utm_campaign=wykonanie" rel="noopener" title="Strona wykonana przez Wylinka"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" fill="currentColor"><path d="M9.8 22.8l-1.2-7.9 2.2-3.7 15.5 4.6-.5 1.5-7.2 5.5 4.7 15.6 5-15.6 7 0 4.1 12.7-4.2-.9-2.6 1.8-.8-2.2-5.3 15.6-4.3 0 .4 .2-2.1 2.8-1.3-1.1 1.1-1.4-3.1 .2-.1-1.7 2.2-.1-5.7-16.5-4.8 .6-.8 3.1 0 .5-.3 .5 .8 2.2-1.6 .5-.4-1.3-.8 1.6-1.5-.8 .8-1.6-1.4 .6-.6-1.6 2.3-.8 .2-.4 1.3-4.8 5.9-.8-2.4-6.9zM15.2 13.7l-.1-.4-.4 .8-.1 .8 .1 1 .1 .4 .3 .7 .3-.9 .1-.7 0-.8z"/><path class="wy-pod" d="M37.1 49.8l-4.5-13.3 2.6-1.8 4.2 .9 .9 2.8 3-9.7 0-.5 .1-.8 3.2-8.4 .5-1 .6-1 .9-1.1 1.3-1 1.1-.7 1.4-.5 1.4-.3 .7 0 .9 0 1.2 .3 1.4 .6 .8 .5 .7 .7 .6 .7 .5 .9 .3 .9 .1 .9 0 .8-.2 .9-.5 .9-.5 .6-.7 .5-.7 .3-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.6-.1-.6-.3-.7-.4-.5-.4-.4-.5-.3-.6-.3-.7 0-.7 .1-.6 .1-.5 .4-.5 .5-.3 .5-.2 .7-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1-2.1-2.8 .4-.2z"/><path class="wy-old" d="M40.8 50l.4-.2-4.1 0-4.2-12.5 2.5-1.7 4.3 .9 .6 1.9 .6-1.6 0-.3 2.4-7.8 0-.5 .1-.8 3.2-8.4 .4-.8 .6-.9 .9-1.2 .9-.9 1.3-.8 1.4-.6 1.2-.3 1.4-.1 1.3 .1 .6 .2 .8 .3 1.1 .6 .9 .7 .7 .9 .5 .9 .3 .9 .1 1.1-.1 .9-.3 .9-.4 .7-.6 .7-.6 .4-.6 .2-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.5-.1-.6-.2-.6-.3-.5-.4-.5-.5-.3-.6-.3-.7-.1-.6 0-.6 .1-.6 .3-.6 .5-.3 .4-.2 .5-.1 .5-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1zM49.6 17.1l.6 1.7-1.5 1.9 .4 .4 1.8-2.1-.7-2.1zM48.1 28.3l.5 1.8-1.7 1.8 .4 .4 1.9-2-.6-2.2zM37.9 41.7l1.7-1.5-.4-.4-1.7 1.4zM42.6 38.7l-1.5 2.8 1.1 2-1.3 2.6 .5 .2 1.5-2.8-1.1-2 1.4-2.5z"/></svg><span>wykonanie: <b>Wylinka</b></span></a>
+
+    </div>
+  </div>
+</footer>
+
+<div id="mob"><a class="t" href="tel:+48782258267">Zadzwoń</a><a class="btn" href="#kontakt">Zapisz dziecko</a></div>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Powiększone zdjęcie">
+  <img alt="">
+  <p></p>
+  <button class="x" aria-label="Zamknij">&#215;</button>
+  <button class="p" aria-label="Poprzednie">&#8592;</button>
+  <button class="n" aria-label="Następne">&#8594;</button>
+</div>
+<script src="app.js" defer></script>
+</body>
+</html>
