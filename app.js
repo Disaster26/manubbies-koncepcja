@@ -8,7 +8,7 @@
 
   var links=[].slice.call(document.querySelectorAll('.menu a[href^="#"]:not(.btn)'));addEventListener('load',function(){setTimeout(sc,200)});
   if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id)})}});if(window.pageYOffset<innerHeight*.4)links.forEach(function(l){l.classList.remove('on')})},{rootMargin:'-45% 0px -50% 0px'});
     links.forEach(function(l){var t=document.querySelector(l.getAttribute('href'));if(t)io.observe(t)});
     var st=document.getElementById('start');if(st)io.observe(st);
     var mob=document.getElementById('mob');
